@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{%block title%} {{profile.user.username|title}}'s Shopcart {%endblock title%} 
+
+
+  <!-- header -->
+  {%block header%}{% include 'header.html' %}{%endblock header %}
+
+   <!-- header end -->
+
+     <!-- showcase -->
+     {%block showcase %} {% include 'showcase.html' %}{% endblock showcase%}
+     <!-- showcase end -->
+
+     
+         <!-- special offers -->
+         {%block specials %} {% include 'specials.html' %}{% endblock specials %}
+         <!-- special offers end -->
+
+{% block content %}
+<section class="mt-5">
+    <div class="container cart bg-transparent text-center">
+      
+      <h5 style = "color:red">Dear {{profile.first_name|title}}Thank you for buying</h5>
+      <h6> Thanks</h6>
+     
+
+     
+    </div>
+  </div>
+
+
+
+{% endblock content  %}
+
+
+  <!--- footer -->
+  {%block footer%}{% include 'footer.html' %}{%endblock footer%}
+
+<!--- footer done -->

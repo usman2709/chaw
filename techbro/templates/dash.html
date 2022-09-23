@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+  
+      <!-- header -->
+  {%block header%}{% include 'header.html' %}{%endblock header %}
+
+  <!-- header end -->
+  
+     <!-- showcase -->
+     {%block showcase %} {% include 'dash_banner.html' %}{% endblock showcase%}
+    
+     <!-- showcase end -->
+     {% block content  %}
+   
+  
+           
+            <section class="bigger">
+                <div class="row text-center">
+                  {% include 'dash_sidebar.html' %}
+                    
+        
+                    <div class="col-5 col-sm-6 col-md-3 col-lg-2 col-xl-8 base">
+                        <div class="basic">
+                            <div class="basicheader">
+                                <h2>Basic Info</h2>
+                            </div>
+                            <div class="profileicon cas">
+                                <!-- <i class="fa-solid fa-user"></i> -->
+                                <img src="{{profile_data.profile_pix.url}}" alt="">
+                            </div>
+                            <div class="info">
+                                <p>First Name : {{profile_data.first_name}}</p>
+                                <p>Last Name  : {{profile_data.last_name}}</p>
+                                <p>Email : {{profile_data.email}}</p>
+                                <p>Address : {{profile_data.address}}</p>
+                                <p>City : {{profile_data.city}}</p>
+                                <p>State : {{profile_data.state}}</p>
+                                <p>Phone : {{profile_data.phone}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+            </section>
+        
+    {% endblock content %}
+
+
+{%block footer%}{% include 'footer.html' %}{%endblock footer %}
