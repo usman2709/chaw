@@ -7,8 +7,9 @@ from .views import *
 
 urlpatterns = [
     path('', index, name ='index'),
+    path('password_reset', password_reset_request, name='password_reset'),
     path('contact', contact, name='contact'),
-    path('all_food', all_food, name='all_food'),
+    path('all_fd', all_food, name='all_food'),
     path('category', category, name='category'),
     path('signin', signin, name='signin'),
     path('signup', signup, name='signup'),
