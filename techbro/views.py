@@ -235,6 +235,7 @@ def signup(request):
 
 
 #dashboard configuration
+@login_required(login_url='signin')
 def profile(request):
     
     profile_data = Profile.objects.get(user__username = request.user.username)
