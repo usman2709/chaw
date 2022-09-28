@@ -1,6 +1,5 @@
 
-from secrets import choice
-from tkinter import Widget
+
 from django import forms
 from django.forms import ModelForm
 from .models import Profile

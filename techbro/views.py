@@ -293,7 +293,7 @@ def passwordupdate(request):
      return render(request, 'profilepassword.html', context)
 
 
-
+@login_required(login_url='signin')
 def ordermeal(request):
     profile_data = Profile.objects.get(user__username = request.user.username)
     cart_no = profile_data.id
@@ -341,7 +341,7 @@ def ordermeal(request):
 
 #@login_required(login_url='signin')
 
-
+@login_required(login_url='signin')
 def mycart(request):
     profile = Profile.objects.get(user__username = request.user.username)
 
@@ -370,6 +370,7 @@ def mycart(request):
     return render ( request, 'mycart.html', context)
 
 
+@login_required(login_url='signin')
 def deletemeal(request):
     if request.method == 'POST':
         meal = request.POST['dishid']
@@ -379,6 +380,7 @@ def deletemeal(request):
     return redirect('mycart')
 
 
+@login_required(login_url='signin')
 def deleteallmeal(request):
     if request.method == 'POST':
         meal = request.POST['alldishid']
@@ -387,7 +389,7 @@ def deleteallmeal(request):
         messages.success(request, ' All Meal deleted successfully')
     return redirect('mycart')
 
-
+@login_required(login_url='signin')
 def decrease(request):
      if request.method == 'POST':
         itemquantity = int(request.POST['decrease'])
@@ -400,6 +402,8 @@ def decrease(request):
 
      return redirect('mycart')
 
+
+@login_required(login_url='signin')
 def increase(request):
     if request.method == 'POST':
         itemquantity = int(request.POST['increase'])
@@ -410,6 +414,7 @@ def increase(request):
         increasecart.save()
         messages.success(request, 'Quantity increase.')
     return redirect('mycart')
+
 
 @login_required(login_url='signin')
 def checkout(request):
@@ -443,7 +448,7 @@ def checkout(request):
 
 
 
-#
+@login_required(login_url='signin')
 def payment(request):
     if request.method =='POST':
         api_key = 'sk_test_b2a5b077239633bf9c06ca34bf16b0b49a1071a0'
@@ -499,6 +504,7 @@ def payment(request):
             return redirect(rurl)
 
     return redirect('checkout')
+
 
 def completed(request):
     profile = Profile.objects.get(user__username= request.user.username)
